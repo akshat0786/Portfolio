@@ -1,12 +1,55 @@
-import React from 'react'
-import './skills.scss'
+import React, { useState, useEffect } from "react";
+import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import { motion } from "framer-motion";
+import ReactTooltip from "react-tooltip";
 
-const skills = () => {
+import { AppWrap } from "../../wrapper";
+import { urlFor, client } from "../../client";
+import "./Skills.scss";
+const Skills = () => {
+  
+  const [experience, setExperience] = useState([])
+  const [skills, setSkills] = useState([])
+
+
+  useEffect(() => {
+    const query = '*[_type == "experiences"]';
+    const skillQuery = '*[_type == "skills"]';
+
+    client.fetch(query).then((data) => {
+      setExperience(data);
+    });
+
+    client.fetch(skillQuery).then((data) => {
+      setSkills(data);
+    });
+  }, []);
+
   return (
-    <div>
-      <h1>skills</h1>
-    </div>
-  )
-}
+    <>
+      <h2 className="head-text">Skills & Experience</h2>
 
-export default skills
+      <div className="app__skills-container">
+        <motion.div className="app__skills-list">
+          {skills.map((skills) => (
+            <motion.div
+              whileInView={{opacity: [0,1]}}
+              transition={{duration: 0.5}}
+              className="app__skills-item app__flex"
+              key={skill.name}
+            >
+
+              <div className="app__flex" style={{backgroundColor: skill.bgColor}}>
+                <img src={urlFor(skill.icon)} alt={skill.name} />
+              </div>
+
+            </motion.div>
+
+          ))}
+        </motion.div>
+      </div>
+    </>
+  );
+};
+
+export default Skills;

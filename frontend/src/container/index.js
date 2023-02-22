@@ -1,6 +1,6 @@
-export {default as About} from './About/about';
-export {default as Footer} from './Footer/footer';
-export {default as Header} from './Header/header';
-export {default as Projects} from './Projects/projects';
-export {default as Skills} from './Skills/skills';
-export {default as Testimonial} from './Testimonial/testimonial';
+export {default as About} from './About/About';
+export {default as Footer} from './Footer/Footer';
+export {default as Header} from './Header/Header';
+export {default as Work} from './Work/Work';
+export {default as Skills} from './Skills/Skills';
+export {default as Testimonial} from './Testimonial/Testimonial';

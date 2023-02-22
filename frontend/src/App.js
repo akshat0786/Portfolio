@@ -5,7 +5,7 @@ import {
   Header,
   Skills,
   Testimonial,
-  Projects,
+  Work,
 } from "./container";
 import { Navbar } from "./components";
 import '../src/App.scss';
@@ -16,7 +16,7 @@ const App = () => {
       <Navbar />
       <Header />
       <About />
-      <Projects />
+      <Work />
       <Skills />
       <Testimonial />
       <Footer />
